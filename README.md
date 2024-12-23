@@ -51,8 +51,8 @@ A web-based application to manage events, attendees, and tasks with a built-in c
 
 2. Create and activate a virtual environment:
    ```bash
-   git clone https://github.com/AstraLink99/Event-Management.git
-   cd Event-Management
+   python -m venv venv 
+   venv\Scripts\activate
 
 3. Install dependencies:
    ```bash
