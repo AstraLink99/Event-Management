@@ -1,0 +1,16 @@
+{% extends 'EventApp/base.html' %}
+
+{% block title %}Delete Attendee{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4 text-danger">Confirm Deletion</h1>
+    <p>Are you sure you want to delete <strong>"{{ attendee.name }}"</strong>?</p>
+    <form method="post" class="d-inline">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    </form>
+    <a href="{% url 'attendee_list' %}" class="btn btn-secondary">Cancel</a>
+</div>
+{% endblock %}
+

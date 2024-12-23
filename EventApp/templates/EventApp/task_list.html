@@ -1,0 +1,55 @@
+{% extends 'EventApp/base.html' %}
+
+{% block title %}Task Management{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Task Management</h1>
+    <a href="{% url 'add_task' %}" class="btn btn-primary mb-3">Add New Task</a>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Deadline</th>
+                    <th>Status</th>
+                    <th>Assigned Attendee</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if tasks %}
+                    {% for task in tasks %}
+                        <tr>
+                            <td>{{ task.name }}</td>
+                            <td>{{ task.deadline }}</td>
+                            <td>
+                                <span class="badge {% if task.status == 'Completed' %}bg-success{% else %}bg-warning text-dark{% endif %}">
+                                    {{ task.status }}
+                                </span>
+                            </td>
+                            <td>
+                                {% if task.assigned_attendee %}
+                                    {{ task.assigned_attendee.name }}
+                                {% else %}
+                                    Unassigned
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a href="{% url 'update_task' task.id %}" class="btn btn-secondary btn-sm">Edit</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="5" class="text-center">No tasks available. Click "Add New Task" to create one.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+    <a href="{% url 'home' %}" class="btn btn-secondary mt-3">Back to Home</a>
+</div>
+{% endblock %}

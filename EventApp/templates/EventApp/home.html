@@ -1,0 +1,80 @@
+{% extends 'EventApp/base.html' %}
+
+{% block title %}Event Management Dashboard{% endblock %}
+
+{% block content %}
+<div class="min-vh-100">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="bi bi-calendar-event me-2"></i>
+                Event Manager
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container py-5">
+        <h1 class="text-center mb-5 fw-bold text-primary">Welcome to Event Management</h1>
+        
+        <div class="row g-4 justify-content-center">
+            <!-- Events Card -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="display-4 text-primary mb-3">
+                            <i class="bi bi-calendar2-week"></i>
+                        </div>
+                        <h5 class="card-title fw-bold mb-3">Manage Events</h5>
+                        <p class="card-text text-muted mb-4">Create, edit, and organize your events efficiently</p>
+                        <a href="{% url 'event_list' %}" class="btn btn-primary">
+                            View Events
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Attendees Card -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="display-4 text-primary mb-3">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h5 class="card-title fw-bold mb-3">Manage Attendees</h5>
+                        <p class="card-text text-muted mb-4">Track and manage event participants</p>
+                        <a href="{% url 'attendee_list' %}" class="btn btn-primary">
+                            View Attendees
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tasks Card -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="display-4 text-primary mb-3">
+                            <i class="bi bi-list-check"></i>
+                        </div>
+                        <h5 class="card-title fw-bold mb-3">Track Tasks</h5>
+                        <p class="card-text text-muted mb-4">Manage and monitor event-related tasks</p>
+                        <a href="{% url 'task_list' %}" class="btn btn-primary">
+                            View Tasks
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <p class="text-muted">Plan, manage, and track your events effortlessly!</p>
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

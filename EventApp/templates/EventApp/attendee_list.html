@@ -1,0 +1,28 @@
+{% extends 'EventApp/base.html' %}
+
+{% block title %}Attendee Management{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Attendee Management</h1>
+    <a href="{% url 'add_attendee' %}" class="btn btn-primary mb-3">Add New Attendee</a>
+    
+    {% if attendees %}
+        <ul class="list-group">
+            {% for attendee in attendees %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span>{{ attendee.name }} - {{ attendee.email }}</span>
+                    <form action="{% url 'delete_attendee' attendee.id %}" method="post" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this attendee?');">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="text-muted">No attendees found. <a href="{% url 'add_attendee' %}" class="text-primary">Add one now</a>.</p>
+    {% endif %}
+    
+    <a href="{% url 'home' %}" class="btn btn-secondary mt-3">Back to Home</a>
+</div>
+{% endblock %}
