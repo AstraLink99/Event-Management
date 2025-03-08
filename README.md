@@ -1,7 +1,7 @@
 
 # Event Management
 
-A web-based application to manage events, attendees, and tasks with a built-in calendar view and RESTful APIs. This project is designed as part of a hackathon assignment, fulfilling all the given requirements.
+A web-based application to manage events, attendees, and tasks with a built-in calendar view and RESTful APIs. This project is designed as part of a hackathon assignment.
 
 ---
 
